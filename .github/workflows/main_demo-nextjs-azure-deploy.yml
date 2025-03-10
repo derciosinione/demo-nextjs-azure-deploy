@@ -31,8 +31,11 @@ jobs:
           cp -R ./.next/static ./.next/standalone/.next/static
           cp -R ./public ./.next/standalone/public || true
 
+      # - name: Zip artifact for deployment
+      #   run: zip release.zip .next/standalone/* -r
+
       - name: Zip artifact for deployment
-        run: zip -r release.zip .next/standalone
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -63,4 +66,4 @@ jobs:
           app-name: "demo-nextjs-azure-deploy"
           slot-name: "Production"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_72EF3D913ADB42C7B7675A89B19F699B }}
-          package: .next/standalone
+          package: .
