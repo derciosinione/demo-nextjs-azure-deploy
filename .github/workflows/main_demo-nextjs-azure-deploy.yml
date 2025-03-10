@@ -70,6 +70,5 @@ jobs:
           app-name: "demo-nextjs-azure-deploy"
           slot-name: "Production"
           package: .
-          startup-command: "npm start"
           # package: .next/standalone  # Deploy the standalone folder
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1C4FC27466894030B1D22560DC979F70 }}
